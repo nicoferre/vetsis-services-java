@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="users")
-public class userEntity {
+public class UserEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,7 +22,7 @@ public class userEntity {
 	public String documentNumber;
 	public String phone;
 	
-	public userEntity(Long id, String userName, String password, String name, String lastname, String roleId,
+	public UserEntity(Long id, String userName, String password, String name, String lastname, String roleId,
 			String email, String documentNumber, String phone) {
 		this.id = id;
 		this.userName = userName;
@@ -35,7 +35,12 @@ public class userEntity {
 		this.phone = phone;
 	}
 	
-	public userEntity() {}
+	public UserEntity(String userName) {
+		this.userName = userName;
+	}
+
+
+	public UserEntity() {}
 	
 	public Long getId() {
 		return id;
