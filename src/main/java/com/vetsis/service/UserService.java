@@ -1,7 +1,5 @@
 package com.vetsis.service;
 
-import org.springframework.stereotype.Service;
-
 import com.vetsis.entities.UserEntity;
 
 public interface UserService{

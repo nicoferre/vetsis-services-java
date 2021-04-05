@@ -1,31 +1,34 @@
 package com.vetsis.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name="users")
 @Table(name="users")
 public class UserEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	public Long id;
-	public String userName;
+	public String username;
 	public String password;
 	public String name;
 	public String lastname;
+	@Column(name = "role_id")
 	public String roleId;
 	public String email;
+	@Column(name = "document_number")
 	public String documentNumber;
 	public String phone;
 	
-	public UserEntity(Long id, String userName, String password, String name, String lastname, String roleId,
+	public UserEntity(Long id, String username, String password, String name, String lastname, String roleId,
 			String email, String documentNumber, String phone) {
 		this.id = id;
-		this.userName = userName;
+		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.lastname = lastname;
@@ -35,10 +38,10 @@ public class UserEntity {
 		this.phone = phone;
 	}
 	
-	public UserEntity(String userName) {
-		this.userName = userName;
+	public UserEntity(String username, String password) {
+		this.username = username;
+		this.password = password;
 	}
-
 
 	public UserEntity() {}
 	
@@ -48,11 +51,11 @@ public class UserEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
@@ -98,7 +101,7 @@ public class UserEntity {
 	}
 	@Override
 	public String toString() {
-		return "userEntity [id=" + id + ", userName=" + userName + ", password=" + password + ", name=" + name
+		return "userEntity [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name
 				+ ", lastname=" + lastname + ", roleId=" + roleId + ", email=" + email + ", documentNumber="
 				+ documentNumber + ", phone=" + phone + "]";
 	}

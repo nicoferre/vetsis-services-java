@@ -19,9 +19,10 @@ public class loginController {
 	UserService userService;
 	
 	@GetMapping("/login")
-	public ResponseEntity<UserEntity> login(@RequestParam(value = "userName") String userName,
+	public ResponseEntity<UserEntity> login(@RequestParam(value = "username") String username,
 			@RequestParam(value = "password") String password) {
-		UserEntity userEntity = new UserEntity(userName);
+		
+		UserEntity userEntity = userService.login(username, password);
 		
 		return new ResponseEntity<>(userEntity, HttpStatus.OK);
 	}
@@ -34,6 +35,4 @@ public class loginController {
     	   return new ResponseEntity<>(userEntity,HttpStatus.CONFLICT);
 
 	}
-	
-	
 }
